@@ -1,0 +1,39 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { IngresoEgreso } from './ingreso-egreso.model';
+import { IngresoEgresoService } from './ingreso-egreso.service';
+
+import Swal from 'sweetalert2';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { ActivarLoadingAction, DesactivarLoadingAction } from '../shared/ui.accions';
+
+
+
+@Component({
+  selector: 'app-ingreso-egreso',
+  templateUrl: './ingreso-egreso.component.html',
+  styles: []
+})
+export class IngresoEgresoComponent implements OnInit, OnDestroy {
+
+  forma: FormGroup;
+  tipo = 'ingreso';
+
+  loadingSubs: Subscription = new Subscription();
+  cargando: boolean;
+
+  constructor() { }
+
+  ngOnInit() {
+
+    
+  }
+
+  ngOnDestroy() {
+    this.loadingSubs.unsubscribe();
+  }
+
+
+
+}
